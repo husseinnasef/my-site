@@ -4,213 +4,313 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Hussein Nasef | حسين ناصف - Creative Architect</title>
-    <meta name="description" content="Hussein Nasef (حسين ناصف) - Preeminent Creative Architect, Narrative Strategist, and SEO Expert. Discover premium branding, storytelling, and digital dominance services.">
-    <meta name="keywords" content="Hussein Nasef, حسين ناصف, Creative Architect, SEO Expert, Narrative Strategist, Branding, مصر, تصميم, كتابة سيناريو">
+    <title>Hussein Nasef | حسين ناصف - Creative Architect & SEO Master</title>
+    <meta name="description" content="Hussein Nasef (حسين ناصف) - Preeminent Creative Architect, Narrative Strategist, and Global SEO Expert. Architecting vision and commanding the digital cosmos.">
+    <meta name="keywords" content="Hussein Nasef, حسين ناصف, SEO Expert, Narrative Strategist, Creative Design, Branding, Egypt, GCC, Global Digital Marketing">
     <meta name="author" content="Hussein Nasef">
-    <meta name="robots" content="index, follow">
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
-            --bg: #030303;
-            --card: #0a0a0a;
-            --red: #ff0011; /* أحمر متشبع جداً */
-            --red-glow: rgba(255, 0, 17, 0.6);
-            --gold: #d4af37;
-        }
-        
-        * { box-sizing: border-box; }
-        body { background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; }
-        
-        /* تأثيرات الأيقونات المتحركة */
-        @keyframes floatIcon {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); filter: drop-shadow(0 0 10px var(--red)); }
-            100% { transform: translateY(0px); }
-        }
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 30px var(--red-glow); }
-            50% { box-shadow: 0 0 60px var(--red); }
-            100% { box-shadow: 0 0 30px var(--red-glow); }
+            --bg: #000000;
+            --card-bg: #080808;
+            --red-neon: #ff0011;
+            --red-glow: rgba(255, 0, 17, 0.7);
+            --text-gray: #777;
+            --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        /* الهيدر */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        /* أنيميشن الدخول */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 10px var(--red-glow); }
+            50% { text-shadow: 0 0 30px var(--red-neon), 0 0 50px var(--red-neon); }
+            100% { text-shadow: 0 0 10px var(--red-glow); }
+        }
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); color: #fff; }
+        }
+        @keyframes bgGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            background-color: var(--bg);
+            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* الهيدر الأسطوري */
         header {
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at top, #1a0002 0%, #030303 80%);
             text-align: center;
+            background: radial-gradient(circle at center, #1a0002 0%, #000 80%);
+            position: relative;
             padding: 20px;
-            position: relative;
         }
-        
-        .profile-wrapper {
-            width: 190px;
-            height: 190px;
-            margin-bottom: 25px;
-            border-radius: 50%;
-            padding: 5px;
-            background: linear-gradient(135deg, var(--red), #400000);
-            animation: pulseGlow 4s infinite;
-        }
-        .profile-wrapper img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 4px solid #000;
-            object-fit: cover;
-        }
-        
-        .name-en { font-family: 'Poppins', sans-serif; font-size: 4.5rem; font-weight: 900; margin: 0; letter-spacing: -1px; text-transform: uppercase; background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
-        .name-ar { font-size: 3rem; font-weight: 900; color: var(--red); margin: 0; text-shadow: 0 0 20px var(--red-glow); }
-        
-        .tagline { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #777; text-transform: uppercase; letter-spacing: 5px; margin-top: 15px; }
 
-        /* الكروت والأنيميشن */
-        .container { max-width: 1250px; margin: auto; padding: 80px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
-        
-        .card {
-            background: var(--card);
-            padding: 45px 35px;
-            border-radius: 20px;
-            border: 1px solid #151515;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            /* إخفاء الكروت قبل الـ Scroll */
-            opacity: 0;
-            transform: translateY(50px);
+        .hero-content { animation: fadeInUp 1.2s ease-out; }
+
+        .name-en {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 0.9;
+            background: linear-gradient(90deg, #fff, #555, #fff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: bgGradient 5s linear infinite;
         }
-        /* كلاس بيتم إضافته بالجافاسكريبت لما تنزل بالماوس */
-        .card.visible {
+
+        .name-ar {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 900;
+            color: var(--red-neon);
+            margin-top: 10px;
+            animation: glowPulse 3s infinite;
+        }
+
+        .hero-tagline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-top: 25px;
+            opacity: 0.8;
+        }
+
+        /* شبكة الخدمات */
+        .container { max-width: 1300px; margin: auto; padding: 100px 20px; }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        .section-title span { color: var(--red-neon); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 40px;
+            border: 1px solid #111;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            opacity: 0; /* للأنيميشن بالـ JS */
+            transform: translateY(30px);
+        }
+
+        .card.active {
             opacity: 1;
             transform: translateY(0);
         }
 
         .card:hover {
-            transform: translateY(-15px);
-            border-color: var(--red);
-            box-shadow: 0 15px 40px var(--red-glow);
-            background: linear-gradient(to bottom, #110000, var(--card));
+            border-color: var(--red-neon);
+            box-shadow: 0 0 40px rgba(255, 0, 17, 0.2);
+            transform: translateY(-20px) scale(1.02);
+            background: #0d0d0d;
         }
-        
-        .icon { font-size: 45px; color: var(--red); margin-bottom: 25px; animation: floatIcon 3s ease-in-out infinite; }
-        .card h3 { font-size: 1.8rem; margin: 0 0 15px 0; font-weight: 900; color: #fff; }
-        .card p { color: #999; line-height: 1.7; font-size: 1rem; }
-        
-        .en-side { border-top: 1px dashed #333; padding-top: 20px; margin-top: 20px; text-align: left; direction: ltr; font-family: 'Poppins', sans-serif; }
-        .en-side h4 { color: var(--red); font-size: 0.95rem; margin: 0 0 8px 0; letter-spacing: 2px; }
-        .en-side p { font-size: 0.85rem; color: #666; margin: 0; }
 
-        /* الأزرار والتواصل */
-        .cta {
+        .card-icon {
+            font-size: 50px;
+            color: var(--red-neon);
+            margin-bottom: 30px;
             display: inline-block;
-            padding: 20px 60px;
-            background: var(--red);
+            animation: iconFloat 4s ease-in-out infinite;
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        .en-info {
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            text-align: left;
+            direction: ltr;
+            font-family: 'Poppins', sans-serif;
+        }
+        .en-info h4 { color: var(--red-neon); font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+        .en-info p { font-size: 0.85rem; color: #555; margin: 0; }
+
+        /* زرار الاتصال */
+        .cta-btn {
+            display: inline-block;
+            padding: 22px 60px;
+            background: var(--red-neon);
             color: #fff;
             text-decoration: none;
-            border-radius: 5px;
             font-family: 'Poppins', sans-serif;
             font-weight: 900;
-            margin-top: 40px;
-            letter-spacing: 2px;
+            border-radius: 10px;
+            margin-top: 50px;
             text-transform: uppercase;
-            box-shadow: 0 10px 30px var(--red-glow);
+            letter-spacing: 2px;
+            box-shadow: 0 10px 40px var(--red-glow);
+            transition: 0.4s;
+        }
+        .cta-btn:hover {
+            transform: scale(1.1);
+            background: #fff;
+            color: var(--red-neon);
+            box-shadow: 0 0 50px #fff;
+        }
+
+        /* الفوتر الاحترافي */
+        footer {
+            padding: 80px 20px;
+            text-align: center;
+            background: #020202;
+            border-top: 1px solid #111;
+        }
+
+        .footer-logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #444;
+            margin-bottom: 15px;
+        }
+        .footer-logo span { color: var(--red-neon); }
+
+        .social-links { margin-bottom: 30px; }
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 20px;
             transition: 0.3s;
         }
-        .cta:hover { transform: scale(1.05); background: #fff; color: var(--red); box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2); }
+        .social-links a:hover { color: var(--red-neon); transform: translateY(-5px); }
 
-        footer { padding: 60px; text-align: center; background: #020202; border-top: 1px solid #111; }
-        .footer-text { font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: #555; letter-spacing: 1px; }
-        .footer-text span { color: var(--red); font-weight: bold; }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="profile-wrapper">
-        <img src="20260307_173832.jpg" alt="Hussein Nasef حسين ناصف" fetchpriority="high" decoding="async">
+    <header>
+        <div class="hero-content">
+            <div class="name-en">Hussein Nasef</div>
+            <div class="name-ar">حسين ناصف</div>
+            <p class="hero-tagline">Digital Empire Architect</p>
+            <a href="tel:+201270193544" class="cta-btn">Initiate Connection</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">إمبراطورية <span>الإبداع</span></h2>
+        
+        <div class="services-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                <h3>السيادة الرقمية (SEO)</h3>
+                <p>هندسة خوارزميات البحث لتصدر النتائج العالمية وبناء أنظمة نمو رقمي مستدامة.</p>
+                <div class="en-info">
+                    <h4>Algorithmic Mastery</h4>
+                    <p>Advanced SEO architecture & digital dominance strategies.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-pen-nib"></i></div>
+                <h3>الهندسة السردية</h3>
+                <p>صياغة سيناريوهات سينمائية وقصص استراتيجية تخترق الأسواق العالمية.</p>
+                <div class="en-info">
+                    <h4>Narrative Engineering</h4>
+                    <p>Cinematic scriptwriting & high-impact strategic storytelling.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-eye"></i></div>
+                <h3>الهوية البصرية</h3>
+                <p>تصميم شعارات أسطورية وهويات بصرية متكاملة تفرض هيبتها في كل مكان.</p>
+                <div class="en-info">
+                    <h4>Visual Authority</h4>
+                    <p>Legendary branding & elite visual identity architecture.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-hammer"></i></div>
+                <h3>الفنون والمنحوتات</h3>
+                <p>تجسيد الفخامة يدوياً عبر النحت الاحترافي والفنون التشكيلية الراقية.</p>
+                <div class="en-info">
+                    <h4>Artisan Mastery</h4>
+                    <p>Premium sculptures & fine art bridging soul with material.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="name-en">Hussein Nasef</div>
-    <div class="name-ar">حسين ناصف</div>
-    <p class="tagline">Creative Architect & SEO Master</p>
-    
-    <a href="tel:+201270193544" class="cta">Start Your Project</a>
-</header>
 
-<main class="container">
-    <div class="grid">
-        <div class="card">
-            <div class="icon"><i class="fas fa-pen-nib"></i></div>
-            <h3>الهندسة السردية</h3>
-            <p>كتابة سيناريوهات سينمائية وتأليف قصصي يخلق عوالم لا تُنسى وتأسر الجمهور.</p>
-            <div class="en-side">
-                <h4>NARRATIVE STRATEGY</h4>
-                <p>Cinematic scriptwriting and immersive storytelling for global brands.</p>
-            </div>
+    <footer>
+        <div class="social-links">
+            <a href="https://facebook.com/husseinnasef"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://tiktok.com/@husseinnasef"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@husseinnasef"><i class="fab fa-youtube"></i></a>
         </div>
-
-        <div class="card" style="transition-delay: 0.1s;">
-            <div class="icon"><i class="fab fa-battle-net"></i></div>
-            <h3>السيطرة الرقمية و SEO</h3>
-            <p>تصدر نتائج محركات البحث وإدارة الخوارزميات لبناء إمبراطورية رقمية متكاملة.</p>
-            <div class="en-side">
-                <h4>DIGITAL DOMINANCE</h4>
-                <p>Advanced SEO ecosystems and algorithmic mastery for top ranking.</p>
-            </div>
+        <div class="footer-logo">
+            Hussein Nasef Original Creation <span>2026 ©</span>
         </div>
+        <p style="color: #222; font-size: 0.8rem; letter-spacing: 1px;">Architecting Vision. Engineering Mastery.</p>
+    </footer>
 
-        <div class="card" style="transition-delay: 0.2s;">
-            <div class="icon"><i class="fas fa-fingerprint"></i></div>
-            <h3>الهوية البصرية</h3>
-            <p>تصميم شعارات أسطورية وهويات بصرية تفرض هيبتها في السوق.</p>
-            <div class="en-side">
-                <h4>VISUAL IDENTITY</h4>
-                <p>Architecting legendary logos and holistic branding solutions.</p>
-            </div>
-        </div>
+    <script>
+        const observerOptions = {
+            threshold: 0.2
+        };
 
-        <div class="card" style="transition-delay: 0.3s;">
-            <div class="icon"><i class="fas fa-chess-knight"></i></div>
-            <h3>الفنون اليدوية والنحت</h3>
-            <p>تجسيد الفخامة عبر النحت الاحترافي والرسم الزيتي لتخليد الأفكار.</p>
-            <div class="en-side">
-                <h4>FINE ART & SCULPTURE</h4>
-                <p>Masterful hand-crafted sculptures and premium oil paintings.</p>
-            </div>
-        </div>
-    </div>
-</main>
-
-<footer>
-    <div class="footer-text">
-        Hussein Nasef Original Creation 2026 &copy; <br>
-        <span>All Rights Reserved</span>
-    </div>
-</footer>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
-        document.querySelectorAll('.card').forEach((card) => {
+        document.querySelectorAll('.card').forEach(card => {
             observer.observe(card);
         });
-    });
-</script>
+    </script>
 
 </body>
 </html>
