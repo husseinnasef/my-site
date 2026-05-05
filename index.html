@@ -3,153 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حسين ناصف | Hussein Nasef - الإمبراطورية الإبداعية</title>
+    
+    <title>Hussein Nasef | حسين ناصف - Creative Architect</title>
+    <meta name="description" content="Hussein Nasef (حسين ناصف) - Preeminent Creative Architect, Narrative Strategist, and SEO Expert. Discover premium branding, storytelling, and digital dominance services.">
+    <meta name="keywords" content="Hussein Nasef, حسين ناصف, Creative Architect, SEO Expert, Narrative Strategist, Branding, مصر, تصميم, كتابة سيناريو">
+    <meta name="author" content="Hussein Nasef">
+    <meta name="robots" content="index, follow">
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
-            --bg: #000000;
-            --card: #0d0d0d;
-            --red: #ff0000;
-            --red-glow: rgba(255, 0, 0, 0.5);
+            --bg: #030303;
+            --card: #0a0a0a;
+            --red: #ff0011; /* أحمر متشبع جداً */
+            --red-glow: rgba(255, 0, 17, 0.6);
+            --gold: #d4af37;
         }
-        * { box-sizing: border-box; transition: all 0.3s ease; }
+        
+        * { box-sizing: border-box; }
         body { background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; }
         
-        /* هيدر أسطوري */
+        /* تأثيرات الأيقونات المتحركة */
+        @keyframes floatIcon {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); filter: drop-shadow(0 0 10px var(--red)); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 30px var(--red-glow); }
+            50% { box-shadow: 0 0 60px var(--red); }
+            100% { box-shadow: 0 0 30px var(--red-glow); }
+        }
+
+        /* الهيدر */
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at 50% 50%, #200000 0%, #000000 100%);
+            background: radial-gradient(circle at top, #1a0002 0%, #030303 80%);
             text-align: center;
             padding: 20px;
-        }
-        .profile-wrapper {
             position: relative;
-            width: 200px;
-            height: 200px;
-            margin-bottom: 20px;
+        }
+        
+        .profile-wrapper {
+            width: 190px;
+            height: 190px;
+            margin-bottom: 25px;
+            border-radius: 50%;
+            padding: 5px;
+            background: linear-gradient(135deg, var(--red), #400000);
+            animation: pulseGlow 4s infinite;
         }
         .profile-wrapper img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            border: 4px solid var(--red);
+            border: 4px solid #000;
             object-fit: cover;
-            box-shadow: 0 0 50px var(--red-glow);
         }
         
-        h1 { font-size: 4.5rem; font-weight: 900; margin: 0; letter-spacing: -2px; background: linear-gradient(to right, #fff, var(--red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .tagline { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #666; text-transform: uppercase; letter-spacing: 4px; margin-top: 10px; }
+        .name-en { font-family: 'Poppins', sans-serif; font-size: 4.5rem; font-weight: 900; margin: 0; letter-spacing: -1px; text-transform: uppercase; background: linear-gradient(to right, #fff, #aaa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; line-height: 1; }
+        .name-ar { font-size: 3rem; font-weight: 900; color: var(--red); margin: 0; text-shadow: 0 0 20px var(--red-glow); }
+        
+        .tagline { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #777; text-transform: uppercase; letter-spacing: 5px; margin-top: 15px; }
 
-        /* حاوية الخدمات */
-        .container { max-width: 1200px; margin: auto; padding: 100px 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        /* الكروت والأنيميشن */
+        .container { max-width: 1250px; margin: auto; padding: 80px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
         
         .card {
             background: var(--card);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid #1a1a1a;
+            padding: 45px 35px;
+            border-radius: 20px;
+            border: 1px solid #151515;
             position: relative;
-            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* إخفاء الكروت قبل الـ Scroll */
+            opacity: 0;
+            transform: translateY(50px);
         }
+        /* كلاس بيتم إضافته بالجافاسكريبت لما تنزل بالماوس */
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .card:hover {
             transform: translateY(-15px);
             border-color: var(--red);
-            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
+            box-shadow: 0 15px 40px var(--red-glow);
+            background: linear-gradient(to bottom, #110000, var(--card));
         }
-        .icon { font-size: 40px; color: var(--red); margin-bottom: 20px; }
-        .card h3 { font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 900; }
-        .card p { color: #888; line-height: 1.8; margin-bottom: 20px; }
         
-        .en-side {
-            border-top: 1px solid #222;
-            padding-top: 15px;
-            text-align: left;
-            direction: ltr;
-            font-family: 'Poppins', sans-serif;
-        }
-        .en-side h4 { color: var(--red); font-size: 0.9rem; margin: 0 0 5px 0; }
-        .en-side p { font-size: 0.8rem; color: #555; margin: 0; }
+        .icon { font-size: 45px; color: var(--red); margin-bottom: 25px; animation: floatIcon 3s ease-in-out infinite; }
+        .card h3 { font-size: 1.8rem; margin: 0 0 15px 0; font-weight: 900; color: #fff; }
+        .card p { color: #999; line-height: 1.7; font-size: 1rem; }
+        
+        .en-side { border-top: 1px dashed #333; padding-top: 20px; margin-top: 20px; text-align: left; direction: ltr; font-family: 'Poppins', sans-serif; }
+        .en-side h4 { color: var(--red); font-size: 0.95rem; margin: 0 0 8px 0; letter-spacing: 2px; }
+        .en-side p { font-size: 0.85rem; color: #666; margin: 0; }
 
-        /* الأزرار */
+        /* الأزرار والتواصل */
         .cta {
             display: inline-block;
-            padding: 20px 50px;
+            padding: 20px 60px;
             background: var(--red);
             color: #fff;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
             font-weight: 900;
             margin-top: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             box-shadow: 0 10px 30px var(--red-glow);
+            transition: 0.3s;
         }
-        .cta:hover { transform: scale(1.1); box-shadow: 0 15px 40px var(--red); }
+        .cta:hover { transform: scale(1.05); background: #fff; color: var(--red); box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2); }
 
-        .social { margin-top: 30px; }
-        .social a { color: #fff; font-size: 1.5rem; margin: 0 15px; }
-        .social a:hover { color: var(--red); }
-
-        footer { padding: 50px; text-align: center; color: #333; font-size: 0.8rem; }
+        footer { padding: 60px; text-align: center; background: #020202; border-top: 1px solid #111; }
+        .footer-text { font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: #555; letter-spacing: 1px; }
+        .footer-text span { color: var(--red); font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
     <div class="profile-wrapper">
-        <img src="20260307_173832.jpg" alt="حسين ناصف">
+        <img src="20260307_173832.jpg" alt="Hussein Nasef حسين ناصف" fetchpriority="high" decoding="async">
     </div>
-    <h1>حسين ناصف</h1>
-    <p class="tagline">Creative Architect & Master Strategist</p>
-    <div class="social">
-        <a href="https://facebook.com/husseinnasef"><i class="fab fa-facebook"></i></a>
-        <a href="https://tiktok.com/@husseinnasef"><i class="fab fa-tiktok"></i></a>
-        <a href="https://youtube.com/@husseinnasef"><i class="fab fa-youtube"></i></a>
-    </div>
-    <a href="tel:+201270193544" class="cta">ابدأ مشروعك الآن | START NOW</a>
+    
+    <div class="name-en">Hussein Nasef</div>
+    <div class="name-ar">حسين ناصف</div>
+    <p class="tagline">Creative Architect & SEO Master</p>
+    
+    <a href="tel:+201270193544" class="cta">Start Your Project</a>
 </header>
 
-<div class="container">
+<main class="container">
     <div class="grid">
         <div class="card">
-            <div class="icon"><i class="fas fa-pen-fancy"></i></div>
-            <h3>الهندسة السردية والكتابة</h3>
-            <p>صناعة السيناريوهات، تأليف الروايات، وبناء الأكوان القصصية التي تترك أثراً عالمياً.</p>
+            <div class="icon"><i class="fas fa-pen-nib"></i></div>
+            <h3>الهندسة السردية</h3>
+            <p>كتابة سيناريوهات سينمائية وتأليف قصصي يخلق عوالم لا تُنسى وتأسر الجمهور.</p>
             <div class="en-side">
-                <h4>NARRATIVE ENGINEERING</h4>
-                <p>Crafting cinematic scripts and immersive universes for maximum reach.</p>
+                <h4>NARRATIVE STRATEGY</h4>
+                <p>Cinematic scriptwriting and immersive storytelling for global brands.</p>
             </div>
         </div>
 
-        <div class="card">
-            <div class="icon"><i class="fas fa-palette"></i></div>
-            <h3>الهوية والبراندينج</h3>
-            <p>تصميم شعارات أسطورية وهويات بصرية تفرض سيطرتها على السوق العالمي.</p>
+        <div class="card" style="transition-delay: 0.1s;">
+            <div class="icon"><i class="fab fa-battle-net"></i></div>
+            <h3>السيطرة الرقمية و SEO</h3>
+            <p>تصدر نتائج محركات البحث وإدارة الخوارزميات لبناء إمبراطورية رقمية متكاملة.</p>
             <div class="en-side">
-                <h4>BRANDING & DESIGN</h4>
-                <p>Architecting visual identities and legendary logos that command attention.</p>
+                <h4>DIGITAL DOMINANCE</h4>
+                <p>Advanced SEO ecosystems and algorithmic mastery for top ranking.</p>
             </div>
         </div>
 
-        <div class="card">
-            <div class="icon"><i class="fas fa-cube"></i></div>
-            <h3>النحت والفنون اليدوية</h3>
-            <p>تجسيد الخيال في منحوتات يدوية ولوحات فنية زيتية تعبر عن المهارة الفائقة.</p>
+        <div class="card" style="transition-delay: 0.2s;">
+            <div class="icon"><i class="fas fa-fingerprint"></i></div>
+            <h3>الهوية البصرية</h3>
+            <p>تصميم شعارات أسطورية وهويات بصرية تفرض هيبتها في السوق.</p>
             <div class="en-side">
-                <h4>ART & SCULPTURE</h4>
-                <p>Hand-crafted masterpieces and fine arts bridging tradition with luxury.</p>
+                <h4>VISUAL IDENTITY</h4>
+                <p>Architecting legendary logos and holistic branding solutions.</p>
+            </div>
+        </div>
+
+        <div class="card" style="transition-delay: 0.3s;">
+            <div class="icon"><i class="fas fa-chess-knight"></i></div>
+            <h3>الفنون اليدوية والنحت</h3>
+            <p>تجسيد الفخامة عبر النحت الاحترافي والرسم الزيتي لتخليد الأفكار.</p>
+            <div class="en-side">
+                <h4>FINE ART & SCULPTURE</h4>
+                <p>Masterful hand-crafted sculptures and premium oil paintings.</p>
             </div>
         </div>
     </div>
-</div>
+</main>
 
 <footer>
-    &copy; 2026 HUSSEIN NASEF | COMMANDING THE DIGITAL COSMOS
+    <div class="footer-text">
+        Hussein Nasef Original Creation 2026 &copy; <br>
+        <span>All Rights Reserved</span>
+    </div>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach((card) => {
+            observer.observe(card);
+        });
+    });
+</script>
 
 </body>
 </html>
