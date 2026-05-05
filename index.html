@@ -3,217 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hussein Nasef | حسين ناصف - The Global Creative Architect</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <title>حسين ناصف | Hussein Nasef - الإمبراطورية الإبداعية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --bg-dark: #000000;
-            --card-dark: #0a0a0a;
-            --primary-red: #e63946;
-            --deep-red: #800000;
-            --gold: #d4af37;
-            --text-white: #ffffff;
-            --text-dim: #888888;
-            --font-main: 'Cairo', sans-serif;
-            --font-en: 'Poppins', sans-serif;
+            --bg: #000000;
+            --card: #0d0d0d;
+            --red: #ff0000;
+            --red-glow: rgba(255, 0, 0, 0.5);
         }
-
-        /* أنيميشن الظهور السلس */
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(50px); filter: blur(5px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-white);
-            font-family: var(--font-main);
-            margin: 0;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* الهيدر الأسطوري */
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+        body { background: var(--bg); color: #fff; font-family: 'Cairo', sans-serif; margin: 0; overflow-x: hidden; }
+        
+        /* هيدر أسطوري */
         header {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: radial-gradient(circle at center, rgba(128, 0, 0, 0.2) 0%, #000000 80%);
+            background: radial-gradient(circle at 50% 50%, #200000 0%, #000000 100%);
             text-align: center;
-            position: relative;
+            padding: 20px;
         }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
+        .profile-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .profile-wrapper img {
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
-            border: 4px solid var(--primary-red);
-            box-shadow: 0 0 50px rgba(230, 57, 70, 0.5);
+            border: 4px solid var(--red);
             object-fit: cover;
-            margin-bottom: 30px;
-            transition: 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 50px var(--red-glow);
         }
-        .profile-img:hover { transform: scale(1.1) rotate(5deg) translateY(-10px); }
+        
+        h1 { font-size: 4.5rem; font-weight: 900; margin: 0; letter-spacing: -2px; background: linear-gradient(to right, #fff, var(--red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .tagline { font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #666; text-transform: uppercase; letter-spacing: 4px; margin-top: 10px; }
 
-        h1 { font-size: 5rem; margin: 0; font-weight: 900; line-height: 1.1; letter-spacing: -2px; background: linear-gradient(135deg, #fff 30%, #e63946); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .tagline { font-family: var(--font-en); font-size: 1.4rem; color: var(--gold); text-transform: uppercase; letter-spacing: 5px; margin-top: 10px; }
-
-        .container { max-width: 1300px; margin: auto; padding: 100px 20px; }
-
-        .section-title { text-align: center; font-size: 3rem; color: var(--primary-red); font-weight: 900; margin-bottom: 80px; text-transform: uppercase; }
-
-        /* شبكة الخدمات الفاخرة */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .service-card {
-            background: var(--card-dark);
-            padding: 50px 40px;
+        /* حاوية الخدمات */
+        .container { max-width: 1200px; margin: auto; padding: 100px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        
+        .card {
+            background: var(--card);
+            padding: 40px;
             border-radius: 30px;
-            border: 1px solid #111;
-            transition: 0.5s ease;
+            border: 1px solid #1a1a1a;
             position: relative;
-            animation: reveal 1s ease-out backwards;
-            text-align: right;
+            overflow: hidden;
         }
-        .service-card:hover {
-            transform: translateY(-20px) scale(1.03);
-            border-color: var(--primary-red);
-            box-shadow: 0 20px 50px rgba(230, 57, 70, 0.2);
-            background: linear-gradient(145deg, #0a0a0a, #1a0000);
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--red);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.1);
         }
-
-        .icon-box { font-size: 50px; color: var(--primary-red); margin-bottom: 25px; }
-        .card-ar h3 { font-size: 2rem; color: #fff; margin-bottom: 10px; font-weight: 900; }
-        .card-ar p { color: var(--text-dim); line-height: 1.8; margin-bottom: 20px; }
-
-        .card-en { border-top: 1px solid #222; padding-top: 20px; margin-top: 20px; font-family: var(--font-en); text-align: left; direction: ltr; }
-        .card-en h4 { color: var(--gold); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
-        .card-en p { color: #666; font-size: 0.9rem; }
+        .icon { font-size: 40px; color: var(--red); margin-bottom: 20px; }
+        .card h3 { font-size: 1.8rem; margin: 0 0 10px 0; font-weight: 900; }
+        .card p { color: #888; line-height: 1.8; margin-bottom: 20px; }
+        
+        .en-side {
+            border-top: 1px solid #222;
+            padding-top: 15px;
+            text-align: left;
+            direction: ltr;
+            font-family: 'Poppins', sans-serif;
+        }
+        .en-side h4 { color: var(--red); font-size: 0.9rem; margin: 0 0 5px 0; }
+        .en-side p { font-size: 0.8rem; color: #555; margin: 0; }
 
         /* الأزرار */
-        .btn {
+        .cta {
             display: inline-block;
-            padding: 20px 60px;
-            background: linear-gradient(135deg, #e63946, #800000);
-            color: white;
+            padding: 20px 50px;
+            background: var(--red);
+            color: #fff;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 900;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 30px rgba(230, 57, 70, 0.4);
-            transition: 0.3s ease;
-            margin: 50px 0;
-            text-transform: uppercase;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px var(--red-glow);
         }
-        .btn:hover { letter-spacing: 3px; filter: brightness(1.2); }
+        .cta:hover { transform: scale(1.1); box-shadow: 0 15px 40px var(--red); }
 
-        footer { text-align: center; padding: 100px 20px; background: #050505; border-top: 1px solid #111; color: #333; }
-        .social-icons a { color: var(--primary-red); font-size: 30px; margin: 0 15px; transition: 0.3s; }
-        .social-icons a:hover { color: #fff; transform: scale(1.2); }
+        .social { margin-top: 30px; }
+        .social a { color: #fff; font-size: 1.5rem; margin: 0 15px; }
+        .social a:hover { color: var(--red); }
 
+        footer { padding: 50px; text-align: center; color: #333; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="20260307_173832.jpg" alt="Hussein Nasef" class="profile-img">
-        <h1>حسين ناصف</h1>
-        <p class="tagline">The Global Creative Architect</p>
-        <div class="social-icons" style="margin-top:20px;">
-            <a href="https://about.me/husseinnasef" target="_blank"><i class="fas fa-id-card-alt"></i></a>
-            <a href="https://tel:+201270193544"><i class="fas fa-phone-alt"></i></a>
-        </div>
-    </header>
+<header>
+    <div class="profile-wrapper">
+        <img src="20260307_173832.jpg" alt="حسين ناصف">
+    </div>
+    <h1>حسين ناصف</h1>
+    <p class="tagline">Creative Architect & Master Strategist</p>
+    <div class="social">
+        <a href="https://facebook.com/husseinnasef"><i class="fab fa-facebook"></i></a>
+        <a href="https://tiktok.com/@husseinnasef"><i class="fab fa-tiktok"></i></a>
+        <a href="https://youtube.com/@husseinnasef"><i class="fab fa-youtube"></i></a>
+    </div>
+    <a href="tel:+201270193544" class="cta">ابدأ مشروعك الآن | START NOW</a>
+</header>
 
-    <div class="container">
-        <h2 class="section-title">مجالات السيادة الإبداعية</h2>
-        
-        <div class="services-grid">
-            <div class="service-card" style="animation-delay: 0.2s;">
-                <div class="icon-box"><i class="fas fa-pen-nib"></i></div>
-                <div class="card-ar">
-                    <h3>الهندسة السردية والكتابة</h3>
-                    <p>صناعة الأكوان السينمائية، كتابة السيناريوهات، تأليف الروايات والقصص التي تأسر العقول وتحاكي الروح.</p>
-                </div>
-                <div class="card-en">
-                    <h4>Narrative Engineering</h4>
-                    <p>Crafting cinematic universes, scriptwriting, authoring novels & strategic storytelling for global reach.</p>
-                </div>
-            </div>
-
-            <div class="service-card" style="animation-delay: 0.4s;">
-                <div class="icon-box"><i class="fas fa-swatchbook"></i></div>
-                <div class="card-ar">
-                    <h3>الهوية البصرية والبراندينج</h3>
-                    <p>بناء العلامات التجارية، تصميم الشعارات الأسطورية (3D/Vector)، واللوحات الإعلانية الضخمة التي تفرض سيطرتها.</p>
-                </div>
-                <div class="card-en">
-                    <h4>Visual Identity & Branding</h4>
-                    <p>Holistic branding, logo architecture (3D/Vector), & large-format signage for market dominance.</p>
-                </div>
-            </div>
-
-            <div class="service-card" style="animation-delay: 0.6s;">
-                <div class="icon-box"><i class="fas fa-sculpture"></i></div>
-                <div class="card-ar">
-                    <h3>الفنون التشكيلية والنحت</h3>
-                    <p>تجسيد الفن يدوياً عبر النحت بالصلصال الحراري، الرسم الزيتي، الرصاص، وصناعة التحف الفنية اليدوية.</p>
-                </div>
-                <div class="card-en">
-                    <h4>Fine Art & Sculpture</h4>
-                    <p>Expert hand-crafted sculpture, oil painting, graphite illustration, & artisanal collectibles.</p>
-                </div>
-            </div>
-
-            <div class="service-card" style="animation-delay: 0.8s;">
-                <div class="icon-box"><i class="fas fa-microphone-alt"></i></div>
-                <div class="card-ar">
-                    <h3>الأداء الصوتي والترجمة</h3>
-                    <p>تقديم خدمات التعليق الصوتي الاحترافي، والترجمة المعتمدة التي تنقل المعنى بروح المبدع الحقيقي.</p>
-                </div>
-                <div class="card-en">
-                    <h4>Voiceover & Translation</h4>
-                    <p>Premium voiceacting, certified translation ensuring poetic pulse & cinematic tone.</p>
-                </div>
-            </div>
-
-            <div class="service-card" style="animation-delay: 1s;">
-                <div class="icon-box"><i class="fab fa-google"></i></div>
-                <div class="card-ar">
-                    <h3>السيطرة الرقمية (SEO)</h3>
-                    <p>تصدر نتائج البحث جوجل العالمي، قيادة الخوارزميات، وبناء أنظمة الـ SEO المتكاملة للنمو السريع.</p>
-                </div>
-                <div class="card-en">
-                    <h4>Digital Dominance (SEO)</h4>
-                    <p>Full-stack global SEO ecosystems, algorithmic mastery, & high-ROI multi-platform growth.</p>
-                </div>
+<div class="container">
+    <div class="grid">
+        <div class="card">
+            <div class="icon"><i class="fas fa-pen-fancy"></i></div>
+            <h3>الهندسة السردية والكتابة</h3>
+            <p>صناعة السيناريوهات، تأليف الروايات، وبناء الأكوان القصصية التي تترك أثراً عالمياً.</p>
+            <div class="en-side">
+                <h4>NARRATIVE ENGINEERING</h4>
+                <p>Crafting cinematic scripts and immersive universes for maximum reach.</p>
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 100px;">
-            <p style="color: var(--text-dim); font-size: 1.2rem;">هل أنت جاهز لبناء إرثك الرقمي؟</p>
-            <a href="tel:+201270193544" class="btn">ابدأ مشروعك الآن</a>
+        <div class="card">
+            <div class="icon"><i class="fas fa-palette"></i></div>
+            <h3>الهوية والبراندينج</h3>
+            <p>تصميم شعارات أسطورية وهويات بصرية تفرض سيطرتها على السوق العالمي.</p>
+            <div class="en-side">
+                <h4>BRANDING & DESIGN</h4>
+                <p>Architecting visual identities and legendary logos that command attention.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="icon"><i class="fas fa-cube"></i></div>
+            <h3>النحت والفنون اليدوية</h3>
+            <p>تجسيد الخيال في منحوتات يدوية ولوحات فنية زيتية تعبر عن المهارة الفائقة.</p>
+            <div class="en-side">
+                <h4>ART & SCULPTURE</h4>
+                <p>Hand-crafted masterpieces and fine arts bridging tradition with luxury.</p>
+            </div>
         </div>
     </div>
+</div>
 
-    <footer>
-        <div class="social-icons" style="margin-bottom: 30px;">
-            <a href="https://www.facebook.com/husseinnasef" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.tiktok.com/@husseinnasef" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/@husseinnasef" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://github.com/husseinnasef" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-        &copy; 2026 Hussein Nasef | Architecting Vision. Engineering Mastery. Commanding the Digital Cosmos.
-    </footer>
+<footer>
+    &copy; 2026 HUSSEIN NASEF | COMMANDING THE DIGITAL COSMOS
+</footer>
 
 </body>
 </html>
